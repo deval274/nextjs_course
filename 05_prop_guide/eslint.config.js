@@ -26,6 +26,13 @@ export default defineConfig([
           caughtErrors: 'none',
         },
       ],
+      'react-refresh/only-export-components': [
+        'warn',
+        {
+          allowConstantExport: true,
+          allowExportNames: ['useTheme', 'ThemeProvider'],
+        },
+      ],
     },
   },
 ])

@@ -1,9 +1,27 @@
-import React from 'react'
+import { createContext, useState } from "react";
 
-function ThemeToggler() {
+const ThemeContext = createContext();
+
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  const value = {
+    theme,
+    toggleTheme,
+    isDark: theme === "dark",
+  };
+
   return (
-    <div className='text-white'>ThemeToggler</div>
-  )
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
 }
 
-export default ThemeToggler
+function ThemeToggler() {
+  return <div className="text-white">ThemeToggler</div>;
+}
+
+export default ThemeToggler;

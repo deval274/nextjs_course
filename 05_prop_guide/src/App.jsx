@@ -48,7 +48,7 @@ function AppContent() {
   const { isDark } = useTheme();
   return (
     <div
-      className={`min-h-screen ${isDark ? "bg-gray-800" : "bg-gradient-to-br from-blue-50 to-purple-50"}`}
+      className={`min-h-screen ${isDark ? "bg-gray-800" : "bg-linear-to-br from-blue-50 to-purple-50"}`}
     >
       <Navigation />
       <div className={`container mx-auto px-4 py-8`}>

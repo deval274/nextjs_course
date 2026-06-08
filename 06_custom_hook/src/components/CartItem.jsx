@@ -7,7 +7,13 @@ function CartItem({ item, onUpdateQuantity, onRemoveFromCart }) {
         <h3>{item.name}</h3>
         <p>{item.price}</p>
         <div className="quantity-controls">
-          <button onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}>
+          <button
+            onClick={() =>
+              item.quantity === 1
+                ? null
+                : onUpdateQuantity(item.id, item.quantity - 1)
+            }
+          >
             <FaMinus />
           </button>
           <span>{item.quantity}</span>
